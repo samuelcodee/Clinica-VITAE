@@ -384,7 +384,10 @@
       btn.hidden = false;
       btn.addEventListener('click', function () {
         video.setAttribute('controls', '');
-        video.play();
+        // play() devolve uma promessa que é rejeitada se a pessoa pausar antes de o
+        // vídeo começar; os controles nativos continuam disponíveis, então só ignoramos
+        var p = video.play();
+        if (p && p.catch) p.catch(function () {});
         btn.hidden = true;
       });
       video.addEventListener('ended', function () { btn.hidden = false; });

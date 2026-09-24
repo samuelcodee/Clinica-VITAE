@@ -32,7 +32,7 @@ Links externos também funcionam, por exemplo: `index.html?servico=implante#agen
 
 ## Ao alterar arquivos depois de publicado
 
-- Mudou `styles.css`, `config.js` ou `main.js`? Aumente o número `?v=5` no `index.html`
+- Mudou `styles.css`, `config.js` ou `main.js`? Aumente o número `?v=6` no `index.html`
   (nas três linhas), para os navegadores buscarem a versão nova.
 - Trocou uma foto? Use um **nome de arquivo novo** (as imagens ficam em cache por 30 dias).
 - Foto principal: `assets/img/dra-karolyna-{520,760,1080}.{avif,webp}`. O original está em
