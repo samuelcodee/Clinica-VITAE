@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Clínica Vitae | Odontologia, Estética do Sorriso e Saúde Integral em Fortaleza</title>
+  <meta name="description" content="Clínica Vitae — Saúde Integral, na Cidade 2000, em Fortaleza (CE). Odontologia com diagnóstico preciso, planejamento individualizado e atendimento acolhedor. Agende sua avaliação pelo WhatsApp.">
+  <meta name="theme-color" content="#0B1F3B">
+  <!-- Quando o domínio estiver definido: <link rel="canonical" href="https://SEU-DOMINIO/"> e URL absoluta no og:image -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Clínica Vitae — Saúde Integral">
+  <meta property="og:title" content="Clínica Vitae | Saúde Integral">
+  <meta property="og:description" content="Odontologia com diagnóstico preciso, planejamento individualizado e atendimento acolhedor, em Fortaleza.">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logotipo da Clínica Vitae ao lado da Dra. Karolyna Borges">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <!-- Fontes hospedadas no próprio site (sem ida ao Google) e a foto principal, pedidas logo de início -->
+  <link rel="preload" href="assets/fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/playfair-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" type="image/avif" fetchpriority="high"
+        imagesrcset="assets/img/dra-karolyna-520.avif 520w, assets/img/dra-karolyna-760.avif 760w, assets/img/dra-karolyna-1080.avif 1080w"
+        imagesizes="(min-width: 900px) 85vh, min(100vw, 540px)">
+  <link rel="stylesheet" href="assets/css/styles.css?v=5">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="assets/js/config.js?v=5" defer></script>
+  <script src="assets/js/main.js?v=5" defer></script>
+
+  <!-- Dados estruturados: somente informações confirmadas -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "Clínica Vitae — Saúde Integral",
+    "image": "assets/img/og-image.jpg",
+    "telephone": "+55 85 98840-4126",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. das Adenanteras, 703 — Cidade 2000",
+      "addressLocality": "Fortaleza",
+      "addressRegion": "CE",
+      "postalCode": "60190-560",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://www.instagram.com/clinicavitaece/",
+      "https://www.instagram.com/clinicavitaebrasil/",
+      "https://www.instagram.com/clinicavitaceara/"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- Barra fixa: aparece depois da primeira dobra -->
+  <header class="topbar" id="topbar">
+    <div class="wrap topbar__in">
+      <a class="brand" href="#inicio" aria-label="Clínica Vitae — voltar ao início">
+        <img class="brand__sym" src="assets/img/logo-simbolo-120.webp" srcset="assets/img/logo-simbolo-120.webp 120w, assets/img/logo-simbolo-dourado.webp 240w" sizes="58px" width="120" height="109" alt="" decoding="async">
+        <img class="brand__name" src="assets/img/logo-nome-320.webp" srcset="assets/img/logo-nome-320.webp 320w, assets/img/logo-nome-dourado.webp 520w" sizes="160px" width="320" height="77" alt="" decoding="async">
+      </a>
+      <nav class="topbar__nav" aria-label="Principal">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#clinica">A clínica</a></li>
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#estetica">Estética</a></li>
+          <li><a href="#consultas">Consultas</a></li>
+          <li><a href="#localizacao">Localização</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--gold btn--sm topbar__cta" href="#agendamento" data-book="">Agendar consulta</a>
+    </div>
+  </header>
+
+  <!-- Menu mobile -->
+  <button class="burger" type="button" aria-controls="drawer" aria-expanded="false" aria-label="Abrir menu">
+    <span class="burger__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+  </button>
+  <div class="drawer" id="drawer" inert>
+    <div class="drawer__backdrop" data-close></div>
+    <nav class="drawer__panel" aria-label="Menu">
+      <p class="drawer__label" data-stagger style="--d:250ms">Navegação</p>
+      <ul class="drawer__nav">
+        <li data-stagger style="--d:300ms"><a href="#inicio">Início</a></li>
+        <li data-stagger style="--d:380ms"><a href="#clinica">A clínica</a></li>
+        <li data-stagger style="--d:460ms"><a href="#especialidades">Especialidades</a></li>
+        <li data-stagger style="--d:540ms"><a href="#estetica">Estética</a></li>
+        <li data-stagger style="--d:620ms"><a href="#consultas">Consultas</a></li>
+        <li data-stagger style="--d:700ms"><a href="#localizacao">Localização</a></li>
+        <li data-stagger style="--d:780ms"><a href="#contato">Contato</a></li>
+      </ul>
+      <p class="drawer__label" data-stagger style="--d:500ms">Fale com a gente</p>
+      <ul class="drawer__contact">
+        <li data-stagger style="--d:550ms"><a href="#" data-href="whatsapp">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg>
+          WhatsApp</a></li>
+        <li data-stagger style="--d:610ms"><a href="#" data-href="instagram">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg>
+          Instagram</a></li>
+        <li data-stagger style="--d:670ms"><a href="#" data-href="directions">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+          Como chegar</a></li>
+      </ul>
+      <a class="btn btn--gold drawer__cta" href="#agendamento" data-book="" data-stagger style="--d:760ms">Agendar consulta</a>
+    </nav>
+  </div>
+
+  <main id="conteudo">
+
+    <!-- ================================================================
+         HERO
+         ================================================================ -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero__glow a-fade-in" aria-hidden="true"></div>
+
+      <div class="hero__head">
+        <a class="brand" href="#inicio" aria-label="Clínica Vitae — Saúde Integral">
+          <img class="brand__sym" src="assets/img/logo-simbolo-120.webp" srcset="assets/img/logo-simbolo-120.webp 120w, assets/img/logo-simbolo-dourado.webp 240w" sizes="58px" width="120" height="109" alt="">
+          <img class="brand__name" src="assets/img/logo-nome-320.webp" srcset="assets/img/logo-nome-320.webp 320w, assets/img/logo-nome-dourado.webp 520w" sizes="160px" width="320" height="77" alt="">
+        </a>
+        <nav class="hero__nav" aria-label="Seções">
+          <p class="hero__meta a-fade-up" style="--d:300ms">Fortaleza<br>Ceará</p>
+          <ul class="hero__col">
+            <li class="a-fade-up" style="--d:340ms"><a href="#clinica">A clínica</a></li>
+            <li class="a-fade-up" style="--d:380ms"><a href="#especialidades">Especialidades</a></li>
+            <li class="a-fade-up" style="--d:420ms"><a href="#estetica">Estética</a></li>
+            <li class="a-fade-up" style="--d:460ms"><a href="#consultas">Consultas</a></li>
+          </ul>
+          <ul class="hero__col">
+            <li class="a-fade-up" style="--d:420ms"><a href="#localizacao">Localização</a></li>
+            <li class="a-fade-up" style="--d:460ms"><a href="#contato">Contato</a></li>
+            <li class="a-fade-up" style="--d:500ms"><a href="#" data-href="instagram">Instagram</a></li>
+          </ul>
+          <a class="btn btn--line-light btn--sm a-fade-up" style="--d:540ms" href="#agendamento" data-book="">Agendar consulta</a>
+        </nav>
+      </div>
+
+      <div class="hero__marquee a-fade-up" style="--d:100ms" aria-hidden="true">
+        <div class="marquee">
+          <span>Clínica <b>&mdash;</b> <i>Vitae</i> <b>&mdash;</b></span>
+          <span>Clínica <b>&mdash;</b> <i>Vitae</i> <b>&mdash;</b></span>
+          <span>Clínica <b>&mdash;</b> <i>Vitae</i> <b>&mdash;</b></span>
+          <span>Clínica <b>&mdash;</b> <i>Vitae</i> <b>&mdash;</b></span>
+        </div>
+      </div>
+
+      <figure class="hero__portrait a-rise-in">
+        <span class="hero__ring" aria-hidden="true"></span>
+        <div class="hero__arch">
+          <picture>
+            <source type="image/avif" sizes="(min-width: 900px) 85vh, min(100vw, 540px)"
+                    srcset="assets/img/dra-karolyna-520.avif 520w, assets/img/dra-karolyna-760.avif 760w, assets/img/dra-karolyna-1080.avif 1080w">
+            <img src="assets/img/dra-karolyna-1080.webp" sizes="(min-width: 900px) 85vh, min(100vw, 540px)"
+                 srcset="assets/img/dra-karolyna-520.webp 520w, assets/img/dra-karolyna-760.webp 760w, assets/img/dra-karolyna-1080.webp 1080w"
+                 width="1080" height="1080" fetchpriority="high"
+                 alt="Dra. Karolyna Borges, cirurgiã-dentista da Clínica Vitae, sorrindo, de blazer claro">
+          </picture>
+        </div>
+        <figcaption class="hero__caption a-fade-up" style="--d:750ms"><strong>Dra. Karolyna Borges</strong><span>Cirurgiã-dentista · Reabilitação oral</span></figcaption>
+      </figure>
+
+      <div class="hero__content">
+        <p class="eyebrow hero__eyebrow">Odontologia · Saúde integral</p>
+        <h1 class="hero__title a-fade-up" id="hero-title" style="--d:260ms">Sua saúde e seu <span class="nowrap">bem-estar</span><br> <em>em boas mãos.</em></h1>
+        <p class="hero__lead a-fade-up" style="--d:360ms">Na Clínica Vitae, cada cuidado começa com atenção individualizada. Unimos saúde, estética e acolhimento para oferecer uma experiência pensada em você.</p>
+        <div class="hero__ctas a-fade-up" style="--d:460ms">
+          <a class="btn btn--gold" href="#agendamento" data-book="">Agendar consulta
+            <svg class="icon icon--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--line-light" href="#especialidades">Conhecer serviços</a>
+        </div>
+      </div>
+
+      <div class="hero__rule a-line" aria-hidden="true"></div>
+
+      <div class="hero__foot">
+        <p class="a-fade-up" style="--d:650ms">Diagnóstico preciso<br>Planejamento individualizado<br>Cuidado integral</p>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         01 · A CLÍNICA
+         ================================================================ -->
+    <section class="sec sec--paper on-light" id="clinica" aria-labelledby="clinica-title">
+      <div class="wrap grid12">
+        <div class="about__head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__n">01</span>A clínica</p>
+          <h2 class="display about__title" id="clinica-title" data-reveal>Mais que estética, <em>saúde integral.</em></h2>
+          <div class="about__text" data-reveal style="--d:120ms">
+            <p class="lead">Acreditamos que cuidar de você vai além da aparência. Nosso propósito é oferecer uma experiência acolhedora, com atenção individualizada e foco na saúde, no bem-estar e na valorização da beleza natural.</p>
+            <p>Por aqui, o sorriso é tratado como parte da sua saúde: função, saúde e estética caminham juntas, do primeiro diagnóstico ao acompanhamento.</p>
+          </div>
+        </div>
+
+        <figure class="about__photo" data-reveal>
+          <img src="assets/img/consultorio-letreiro.webp" srcset="assets/img/consultorio-letreiro-400.webp 400w, assets/img/consultorio-letreiro.webp 720w"
+               sizes="(min-width: 900px) 52vw, 92vw" width="720" height="330" loading="lazy" decoding="async"
+               alt="Letreiro dourado “Clínica Vitae por Karolyna Borges” iluminado no consultório">
+          <figcaption>O consultório da Clínica Vitae, na Cidade 2000, em Fortaleza.</figcaption>
+        </figure>
+
+        <ul class="diffs" aria-label="O que orienta o nosso atendimento">
+          <li data-reveal>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c.9-4 4.1-6 8-6s7.1 2 8 6"/></svg>
+            <div><h3>Atenção individualizada</h3><p>Cada plano nasce de uma avaliação cuidadosa do seu caso — nada de roteiro pronto.</p></div>
+          </li>
+          <li data-reveal style="--d:80ms">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8.5 11h5M11 8.5v5"/></svg>
+            <div><h3>Diagnóstico antes do tratamento</h3><p>Tudo começa com um diagnóstico preciso e um planejamento feito para você.</p></div>
+          </li>
+          <li data-reveal style="--d:160ms">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.1A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 11.5h7M8.5 14.5h4"/></svg>
+            <div><h3>Comunicação clara</h3><p>Você entende cada etapa do tratamento, do primeiro contato ao acompanhamento.</p></div>
+          </li>
+          <li data-reveal style="--d:240ms">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            <div><h3>Cuidado integral</h3><p>Função, saúde e estética pensadas em conjunto, para resultados naturais.</p></div>
+          </li>
+        </ul>
+
+        <p class="about__sign" data-reveal>
+          <svg class="leaf leaf--flip" viewBox="0 0 240 120" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 112C60 96 120 70 232 8"/><path d="M58 94Q72.7 82 73 63Q58.3 75 58 94Z"/><path d="M58 94Q69.8 108.7 88.6 108.9Q76.8 94.3 58 94Z"/><path d="M108 72Q121.3 58.7 119.6 40Q106.3 53.3 108 72Z"/><path d="M108 72Q121.3 85.3 139.9 83.6Q126.7 70.3 108 72Z"/><path d="M165 44Q177.7 30.2 175.2 11.6Q162.5 25.4 165 44Z"/><path d="M165 44Q178.8 56.7 197.4 54.2Q183.6 41.5 165 44Z"/></svg>
+          Cuidar de você é a nossa essência.
+          <svg class="leaf" viewBox="0 0 240 120" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 112C60 96 120 70 232 8"/><path d="M58 94Q72.7 82 73 63Q58.3 75 58 94Z"/><path d="M58 94Q69.8 108.7 88.6 108.9Q76.8 94.3 58 94Z"/><path d="M108 72Q121.3 58.7 119.6 40Q106.3 53.3 108 72Z"/><path d="M108 72Q121.3 85.3 139.9 83.6Q126.7 70.3 108 72Z"/><path d="M165 44Q177.7 30.2 175.2 11.6Q162.5 25.4 165 44Z"/><path d="M165 44Q178.8 56.7 197.4 54.2Q183.6 41.5 165 44Z"/></svg>
+        </p>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         02 · O PADRÃO (fala da Dra. Karolyna)
+         ================================================================ -->
+    <section class="sec sec--deep" id="padrao" aria-labelledby="padrao-title">
+      <div class="wrap standard">
+        <figure class="standard__video" data-video data-reveal>
+          <div class="standard__frame">
+            <video controls preload="none" playsinline width="720" height="1280" aria-label="Vídeo da Dra. Karolyna Borges sobre o padrão da clínica">
+              <source src="assets/media/dra-karolyna-padrao-vitae.mp4" type="video/mp4">
+            </video>
+            <button class="vplay" type="button" hidden>
+              <img class="vplay__poster" src="assets/img/video-capa-480.webp" srcset="assets/img/video-capa-480.webp 480w, assets/img/video-capa.webp 720w" sizes="380px" width="480" height="853" loading="lazy" decoding="async" alt="">
+              <span class="vplay__btn"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></span>
+              <span class="vplay__txt">Assistir · 0:42</span>
+              <span class="sr-only">Assistir ao vídeo da Dra. Karolyna Borges sobre o padrão da clínica</span>
+            </button>
+          </div>
+          <figcaption>Vídeo com legendas · Dra. Karolyna Borges</figcaption>
+        </figure>
+
+        <div class="standard__body">
+          <p class="eyebrow" data-reveal><span class="eyebrow__n">02</span>O padrão Vitae</p>
+          <blockquote class="quote" data-reveal style="--d:100ms">
+            <p id="padrao-title">“O padrão da minha clínica é técnico e <em>inegociável.</em>”</p>
+            <footer>Dra. Karolyna Borges</footer>
+          </blockquote>
+          <ol class="principles">
+            <li data-reveal><span>I</span><p>Aqui tudo começa com diagnóstico preciso e planejamento individualizado.</p></li>
+            <li data-reveal style="--d:80ms"><span>II</span><p>Nenhum procedimento é indicado sem necessidade.</p></li>
+            <li data-reveal style="--d:160ms"><span>III</span><p>Sem soluções rápidas e sem aceitar resultados medianos.</p></li>
+          </ol>
+          <p class="triad" data-reveal>Função <i aria-hidden="true"></i> Saúde <i aria-hidden="true"></i> Estética</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         03 · ESPECIALIDADES (lista vem de config.js)
+         ================================================================ -->
+    <section class="sec sec--white on-light" id="especialidades" aria-labelledby="esp-title">
+      <div class="wrap svc">
+        <div class="svc__intro">
+          <p class="eyebrow" data-reveal><span class="eyebrow__n">03</span>Especialidades</p>
+          <h2 class="display" id="esp-title" data-reveal>Cuidado para cada <em>etapa do sorriso.</em></h2>
+          <p class="lead" data-reveal style="--d:100ms">Da prevenção à reabilitação oral. O plano de cada paciente é definido depois da avaliação — sem procedimentos desnecessários.</p>
+          <a class="btn btn--navy" href="#agendamento" data-book="avaliacao" data-reveal style="--d:160ms">Agendar avaliação</a>
+        </div>
+        <ol class="svc__list" id="services-list" aria-label="Serviços">
+          <li class="svc-row svc-row--static"><div></div><div class="svc-row__main"><h3>Avaliação, limpeza, clareamento, alinhadores, aparelho, implante, prótese, canal e urgência / dor</h3></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         04 · ESTÉTICA DO SORRISO
+         ================================================================ -->
+    <section class="sec sec--navy" id="estetica" aria-labelledby="estetica-title">
+      <div class="wrap aesth">
+        <div class="aesth__body">
+          <p class="eyebrow" data-reveal><span class="eyebrow__n">04</span>Estética do sorriso</p>
+          <h2 class="display" id="estetica-title" data-reveal>Estética e saúde bucal com <em>empatia e excelência.</em></h2>
+          <p class="lead" data-reveal style="--d:100ms">Planejamento prático e resultados naturais. Antes de clarear, alinhar ou reabilitar, olhamos para a saúde do sorriso como um todo — e só então definimos o caminho.</p>
+          <ul class="words" aria-label="Como deve ser um sorriso bem feito" data-reveal style="--d:160ms">
+            <li>Previsível</li><li>Durável</li><li>Responsável</li>
+          </ul>
+          <p class="words-note" data-reveal style="--d:200ms">Como deve ser um sorriso bem feito.</p>
+          <a class="btn btn--gold" href="#agendamento" data-book="avaliacao" data-note="Tenho interesse em estética do sorriso." data-reveal style="--d:240ms">Quero agendar
+            <svg class="icon icon--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <figure class="compare" data-reveal style="--d:120ms">
+          <svg class="leaf compare__ornament" viewBox="0 0 240 120" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 112C60 96 120 70 232 8"/><path d="M58 94Q72.7 82 73 63Q58.3 75 58 94Z"/><path d="M58 94Q69.8 108.7 88.6 108.9Q76.8 94.3 58 94Z"/><path d="M108 72Q121.3 58.7 119.6 40Q106.3 53.3 108 72Z"/><path d="M108 72Q121.3 85.3 139.9 83.6Q126.7 70.3 108 72Z"/><path d="M165 44Q177.7 30.2 175.2 11.6Q162.5 25.4 165 44Z"/><path d="M165 44Q178.8 56.7 197.4 54.2Q183.6 41.5 165 44Z"/></svg>
+          <div class="compare__stage">
+            <img src="assets/img/caso-depois.webp" width="640" height="250" loading="lazy" decoding="async" alt="Depois: dentes superiores com cor uniforme e clara">
+            <div class="compare__before"><img src="assets/img/caso-antes.webp" width="640" height="250" loading="lazy" decoding="async" alt="Antes: dentes superiores com tons desiguais"></div>
+            <span class="compare__handle" aria-hidden="true"></span>
+            <span class="compare__tag compare__tag--l" aria-hidden="true">Antes</span>
+            <span class="compare__tag compare__tag--r" aria-hidden="true">Depois</span>
+            <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="Arraste para comparar antes e depois">
+            <span class="compare__focus" aria-hidden="true"></span>
+          </div>
+          <figcaption>Caso atendido na Clínica Vitae. Resultados variam de pessoa para pessoa e dependem de avaliação individual.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         05 · CONSULTAS E PROCESSO
+         ================================================================ -->
+    <section class="sec sec--petrol" id="consultas" aria-labelledby="consultas-title">
+      <div class="wrap">
+        <div class="consult__head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__n">05</span>Consultas e avaliação</p>
+          <h2 class="display" id="consultas-title" data-reveal>Tudo começa com um <em>diagnóstico preciso.</em></h2>
+          <p class="lead" data-reveal style="--d:100ms">A avaliação é o primeiro passo de qualquer tratamento: ouvimos sua queixa, examinamos a saúde bucal e explicamos com clareza as opções para o seu caso.</p>
+        </div>
+
+        <ol class="journey" aria-label="Como funciona o atendimento">
+          <li data-reveal><span class="journey__n">01</span><h3>Contato</h3><p>Você envia a solicitação pelo WhatsApp, com o serviço e o horário de preferência.</p></li>
+          <li data-reveal style="--d:90ms"><span class="journey__n">02</span><h3>Confirmação</h3><p>A equipe responde para confirmar o dia e o horário conforme a agenda.</p></li>
+          <li data-reveal style="--d:180ms"><span class="journey__n">03</span><h3>Avaliação</h3><p>Exame clínico, escuta atenta e orientação sobre o que o seu caso pede.</p></li>
+          <li data-reveal style="--d:270ms"><span class="journey__n">04</span><h3>Plano e acompanhamento</h3><p>Planejamento individualizado e acompanhamento em cada etapa do tratamento.</p></li>
+        </ol>
+
+        <div class="consult__info">
+          <div data-reveal>
+            <h3>Antes de ir</h3>
+            <ul>
+              <li>O atendimento é com hora marcada: agende antes pelo WhatsApp.</li>
+              <li>Se tiver exames ou radiografias recentes, leve-os à consulta.</li>
+              <li>Chegue alguns minutos antes do horário combinado.</li>
+            </ul>
+          </div>
+          <div data-reveal style="--d:80ms">
+            <h3>Dor ou urgência?</h3>
+            <p>Escolha “Urgência / dor” no agendamento ou chame no WhatsApp: a equipe orienta sobre o atendimento.</p>
+          </div>
+          <div class="consult__cta" data-reveal style="--d:160ms">
+            <a class="btn btn--gold" href="#agendamento" data-book="avaliacao">Agendar avaliação</a>
+            <a class="btn btn--line-light" href="#" data-href="whatsapp">Falar no WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         06 · A DOUTORA
+         ================================================================ -->
+    <section class="sec sec--paper on-light" id="equipe" aria-labelledby="equipe-title">
+      <div class="wrap doctor">
+        <figure class="doctor__photo" data-reveal>
+          <img src="assets/img/dra-karolyna-premio.webp" srcset="assets/img/dra-karolyna-premio-400.webp 400w, assets/img/dra-karolyna-premio.webp 600w"
+               sizes="(min-width: 900px) 480px, 88vw" width="600" height="900" loading="lazy" decoding="async"
+               alt="Dra. Karolyna Borges sorri segurando o certificado e a placa do Prêmio Top Master Ceará 2026">
+          <figcaption>Prêmio Top Master Ceará 2026</figcaption>
+        </figure>
+        <div class="doctor__body">
+          <p class="eyebrow" data-reveal><span class="eyebrow__n">06</span>Quem cuida de você</p>
+          <h2 class="display" id="equipe-title" data-reveal>Dra. Karolyna <em>Borges</em></h2>
+          <p class="doctor__role" data-reveal>Cirurgiã-dentista · Reabilitação oral</p>
+          <p class="lead" data-reveal style="--d:100ms">À frente da Clínica Vitae, a Dra. Karolyna conduz cada caso com o mesmo princípio: entender antes de tratar. Professora e mentora, dedica sua carreira a transformar sorrisos e histórias.</p>
+          <ul class="facts" data-reveal style="--d:140ms">
+            <li><strong>20 anos</strong><span>de atuação profissional</span></li>
+            <li><strong>Top Master</strong><span>Homenageada no Prêmio Top Master Ceará 2026</span></li>
+            <li><strong>Docência</strong><span>Professora e mentora</span></li>
+          </ul>
+          <p class="doctor__cro" data-reveal>CRO-CE: <span class="pending" data-bind="cro">a informar</span></p>
+          <div class="doctor__cta" data-reveal>
+            <a class="btn btn--navy" href="#agendamento" data-book="" data-pro="karolyna">Agendar com a Dra. Karolyna</a>
+            <a class="link-arrow" href="https://www.instagram.com/dra.karolynaborges/" target="_blank" rel="noopener">@dra.karolynaborges
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         07 · AGENDAMENTO
+         ================================================================ -->
+    <section class="sec sec--navy" id="agendamento" aria-labelledby="agendamento-title">
+      <div class="wrap booking">
+        <div class="booking__intro">
+          <p class="eyebrow"><span class="eyebrow__n">07</span>Agendamento</p>
+          <h2 class="display" id="agendamento-title">Seu próximo passo para cuidar de você <em>começa aqui.</em></h2>
+          <p class="lead">Escolha o serviço, a data e o horário de sua preferência. Nós montamos a mensagem — você só precisa enviá-la pelo WhatsApp.</p>
+          <p class="notice">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M16 2.5v4M8 2.5v4M3 10h18M8.5 15l2.3 2.3 4.7-4.6"/></svg>
+            <span>Seu agendamento será confirmado pela equipe da Clínica Vitae pelo WhatsApp.</span>
+          </p>
+          <p class="booking__direct">Prefere falar direto? <a href="#" data-href="whatsapp" data-bind="phoneDisplay">(85) 98840-4126</a></p>
+          <svg class="leaf booking__leaf" viewBox="0 0 240 120" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 112C60 96 120 70 232 8"/><path d="M58 94Q72.7 82 73 63Q58.3 75 58 94Z"/><path d="M58 94Q69.8 108.7 88.6 108.9Q76.8 94.3 58 94Z"/><path d="M108 72Q121.3 58.7 119.6 40Q106.3 53.3 108 72Z"/><path d="M108 72Q121.3 85.3 139.9 83.6Q126.7 70.3 108 72Z"/><path d="M165 44Q177.7 30.2 175.2 11.6Q162.5 25.4 165 44Z"/><path d="M165 44Q178.8 56.7 197.4 54.2Q183.6 41.5 165 44Z"/></svg>
+        </div>
+
+        <form class="bform on-light" id="booking-form" data-step="1" novalidate aria-labelledby="agendamento-title">
+          <div class="bform__top">
+            <div class="stepper" aria-hidden="true">
+              <span class="stepper__pill"></span>
+              <span class="stepper__dot"></span><span class="stepper__dot"></span><span class="stepper__dot"></span>
+            </div>
+            <p class="bform__count" id="bform-count" aria-live="polite">Etapa 1 de 3 · Serviço</p>
+          </div>
+
+          <fieldset class="bstep" data-step="1">
+            <legend class="bstep__title">Qual serviço você deseja?</legend>
+            <p class="bstep__sub">Se estiver em dúvida, escolha “Avaliação”.</p>
+            <div class="chips" id="service-chips"></div>
+            <p class="field-error" id="err-service" role="alert" hidden></p>
+            <fieldset class="subfield" id="pro-field">
+              <legend>Profissional</legend>
+              <div class="chips" id="pro-chips"></div>
+            </fieldset>
+          </fieldset>
+
+          <fieldset class="bstep" data-step="2" hidden>
+            <legend class="bstep__title">Quando fica melhor para você?</legend>
+            <p class="bstep__sub">É uma preferência: a equipe confirma a disponibilidade.</p>
+            <div class="field-row">
+              <div class="field">
+                <label for="b-date">Data desejada</label>
+                <input id="b-date" name="date" type="date" required aria-describedby="err-date">
+                <p class="field-error" id="err-date" role="alert" hidden></p>
+              </div>
+              <div class="field">
+                <label for="b-time">Horário desejado</label>
+                <input id="b-time" name="time" type="time" step="900" required aria-describedby="err-time">
+                <p class="field-error" id="err-time" role="alert" hidden></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="bstep" data-step="3" hidden>
+            <legend class="bstep__title">Quase lá. Como podemos te chamar?</legend>
+            <div class="field">
+              <label for="b-name">Seu nome</label>
+              <input id="b-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="err-name">
+              <p class="field-error" id="err-name" role="alert" hidden></p>
+            </div>
+            <div class="field">
+              <label for="b-note">Observação <span class="opt">(opcional)</span></label>
+              <textarea id="b-note" name="note" rows="3" maxlength="400" aria-describedby="note-hint"></textarea>
+              <p class="hint" id="note-hint">Não precisa informar dados de saúde aqui — isso fica para a consulta.</p>
+            </div>
+            <div class="summary">
+              <p class="summary__title">Resumo da solicitação</p>
+              <dl id="summary-list"></dl>
+            </div>
+          </fieldset>
+
+          <div class="bform__done" hidden>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.2 2.4 2.4 4.6-4.9"/></svg>
+            <h3>Sua mensagem está pronta.</h3>
+            <p>Abrimos o WhatsApp com a sua solicitação. É só tocar em enviar — a equipe da Clínica Vitae vai confirmar a disponibilidade com você.</p>
+            <div class="actions">
+              <a class="btn btn--navy" id="done-link" href="#" target="_blank" rel="noopener">Abrir o WhatsApp</a>
+              <button class="btn btn--line-dark" type="button" data-reset>Nova solicitação</button>
+            </div>
+          </div>
+
+          <div class="bform__alert" role="alert" hidden></div>
+
+          <div class="stepnav">
+            <button class="stepnav__back" type="button" tabindex="-1" aria-hidden="true">Voltar</button>
+            <button class="stepnav__next" type="submit">
+              <span class="stepnav__spin" aria-hidden="true"></span>
+              <svg class="stepnav__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.2 2.4 2.4 4.6-4.9"/></svg>
+              <span class="stepnav__label">Continuar</span>
+            </button>
+          </div>
+
+          <p class="bform__legal">Seus dados não ficam salvos neste site: eles vão só na mensagem que você envia. <button type="button" data-privacy>Política de privacidade</button></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         08 · LOCALIZAÇÃO
+         ================================================================ -->
+    <section class="sec sec--white on-light" id="localizacao" aria-labelledby="loc-title">
+      <div class="wrap loc">
+        <div class="loc__body">
+          <p class="eyebrow" data-reveal><span class="eyebrow__n">08</span>Localização</p>
+          <h2 class="display" id="loc-title" data-reveal>Estamos esperando <em>por você.</em></h2>
+          <p class="lead" data-reveal style="--d:100ms">Encontre a Clínica Vitae e planeje sua visita com facilidade.</p>
+          <dl class="loc__list" data-reveal style="--d:140ms">
+            <div>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+              <dt>Endereço</dt>
+              <dd><span data-bind="street">Av. das Adenanteras, 703</span><br><span data-bind="cityLine">Cidade 2000 · Fortaleza — CE · CEP 60190-560</span></dd>
+            </div>
+            <div>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              <dt>Horário de atendimento</dt>
+              <dd><span data-bind="hours">Com hora marcada, agendada pelo WhatsApp.</span></dd>
+            </div>
+            <div>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <dt>Telefone e WhatsApp</dt>
+              <dd><a href="#" data-href="tel" data-bind="phoneDisplay">(85) 98840-4126</a></dd>
+            </div>
+          </dl>
+          <div class="loc__cta" data-reveal style="--d:180ms">
+            <a class="btn btn--navy" href="#" data-href="directions">Como chegar
+              <svg class="icon icon--arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--line-dark" href="#" data-href="maps">Abrir no Google Maps</a>
+          </div>
+        </div>
+
+        <div class="map" id="map" data-reveal style="--d:120ms">
+          <div class="map__ph">
+            <span class="map__pin"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <p class="map__addr">Av. das Adenanteras, 703</p>
+            <button class="btn btn--gold btn--sm" type="button" data-load-map>Ver mapa interativo</button>
+            <p class="map__note">O mapa do Google só é carregado depois do seu clique.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         09 · PERGUNTAS FREQUENTES (vem de config.js)
+         ================================================================ -->
+    <section class="sec sec--paper on-light" id="duvidas" aria-labelledby="faq-title">
+      <div class="wrap faq">
+        <div class="faq__head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__n">09</span>Dúvidas</p>
+          <h2 class="display" id="faq-title" data-reveal>Perguntas <em>frequentes</em></h2>
+          <p data-reveal style="--d:100ms">Não encontrou o que procurava? <a href="#" data-href="whatsapp">Fale com a equipe</a>.</p>
+        </div>
+        <div class="faq__list" id="faq-list"></div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         10 · CONTATO
+         ================================================================ -->
+    <section class="sec sec--deep" id="contato" aria-labelledby="contato-title">
+      <div class="wrap">
+        <p class="eyebrow" data-reveal><span class="eyebrow__n">10</span>Contato</p>
+        <h2 class="sr-only" id="contato-title">Contato</h2>
+        <blockquote class="closing__quote" data-reveal>
+          “Se você busca uma clínica com critério e excelência, vem conhecer a <em>Clínica Vitae.</em>”
+          <footer>Dra. Karolyna Borges</footer>
+        </blockquote>
+
+        <div class="contacts">
+          <a class="contact" href="#" data-href="whatsapp" data-reveal>
+            <span class="contact__k">WhatsApp e telefone</span>
+            <span class="contact__v" data-bind="phoneDisplay">(85) 98840-4126</span>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+          <a class="contact" href="#" data-href="instagram" data-reveal style="--d:80ms">
+            <span class="contact__k">Instagram</span>
+            <span class="contact__v" data-bind="instagram">@clinicavitaece</span>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+          <a class="contact" href="#" data-href="directions" data-reveal style="--d:160ms">
+            <span class="contact__k">Endereço · Como chegar</span>
+            <span class="contact__v" data-bind="street">Av. das Adenanteras, 703</span>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+        <p class="contacts__more" data-reveal>Também no Instagram:
+          <span data-instagram-list="more"><a href="https://www.instagram.com/clinicavitaebrasil/" target="_blank" rel="noopener">@clinicavitaebrasil</a> · <a href="https://www.instagram.com/clinicavitaceara/" target="_blank" rel="noopener">@clinicavitaceara</a> · <a href="https://www.instagram.com/dra.karolynaborges/" target="_blank" rel="noopener">@dra.karolynaborges</a></span>
+        </p>
+
+        <div class="closing__cta" data-reveal>
+          <a class="btn btn--gold" href="#agendamento" data-book="">Agendar consulta</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================================================================
+       RODAPÉ
+       ================================================================ -->
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div class="footer__brand">
+        <img src="assets/img/logo-completo-440.webp" srcset="assets/img/logo-completo-440.webp 440w, assets/img/logo-completo-dourado.webp 640w" sizes="220px" width="440" height="328" loading="lazy" decoding="async" alt="Clínica Vitae — Saúde Integral">
+        <p>Saúde, beleza e bem-estar em harmonia.</p>
+      </div>
+      <nav aria-label="Rodapé">
+        <h2>Navegação</h2>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#clinica">A clínica</a></li>
+          <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#estetica">Estética</a></li>
+          <li><a href="#consultas">Consultas</a></li>
+          <li><a href="#localizacao">Localização</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Especialidades</h2>
+        <ul id="footer-services"></ul>
+      </div>
+      <div>
+        <h2>Contato</h2>
+        <address>
+          <span><span data-bind="street">Av. das Adenanteras, 703</span><br><span data-bind="cityLine">Cidade 2000 · Fortaleza — CE · CEP 60190-560</span></span>
+          <a href="#" data-href="whatsapp">WhatsApp <span data-bind="phoneDisplay">(85) 98840-4126</span></a>
+          <span data-instagram-list="all" class="footer__ig">
+            <a href="https://www.instagram.com/clinicavitaece/" target="_blank" rel="noopener">@clinicavitaece</a>
+            <a href="https://www.instagram.com/clinicavitaebrasil/" target="_blank" rel="noopener">@clinicavitaebrasil</a>
+            <a href="https://www.instagram.com/clinicavitaceara/" target="_blank" rel="noopener">@clinicavitaceara</a>
+            <a href="https://www.instagram.com/dra.karolynaborges/" target="_blank" rel="noopener">@dra.karolynaborges</a>
+          </span>
+          <span>Horário: <span data-bind="hoursInline">com hora marcada, agendada pelo WhatsApp.</span></span>
+        </address>
+      </div>
+    </div>
+    <div class="wrap footer__legal">
+      <p>© <span data-bind="year">2026</span> Clínica Vitae — Saúde Integral. Todos os direitos reservados.</p>
+      <p>Responsável técnica: Dra. Karolyna Borges · CRO-CE <span class="pending" data-bind="cro">a informar</span></p>
+      <button type="button" data-privacy>Política de privacidade</button>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flutuante (some sozinho se o número não estiver configurado) -->
+  <a class="wa-float is-hidden" href="#" data-href="whatsapp" aria-label="Conversar com a Clínica Vitae no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg>
+    <span class="wa-float__tip">Fale com a clínica</span>
+  </a>
+
+  <!-- Política de privacidade -->
+  <dialog class="privacy" id="privacy" aria-labelledby="privacy-title">
+    <div class="privacy__in">
+      <h2 id="privacy-title">Política de privacidade</h2>
+      <p>Este site não armazena os dados digitados no formulário de agendamento. Quando você toca em “Enviar pelo WhatsApp”, as informações servem apenas para montar a mensagem que você mesmo envia ao WhatsApp oficial da clínica.</p>
+      <p>O mapa do Google Maps só é carregado se você clicar em “Ver mapa interativo”. Fontes, imagens e vídeo são servidos pelo próprio site.</p>
+      <p class="pending">Espaço reservado para a política completa da Clínica Vitae, em conformidade com a LGPD (texto a ser fornecido pela clínica).</p>
+      <button class="btn btn--navy" type="button" data-privacy-close>Fechar</button>
+    </div>
+  </dialog>
+</body>
+</html>
