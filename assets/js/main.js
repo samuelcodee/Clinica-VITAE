@@ -8,6 +8,13 @@
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
   var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var idle = window.requestIdleCallback
+    ? function (cb, timeout) { return window.requestIdleCallback(cb, { timeout: timeout }); }
+    : function (cb) { return setTimeout(function () { cb({ timeRemaining: function () { return 10; } }); }, 50); };
+  // roda depois que a página terminou de abrir (foto principal, fontes e estilos já baixados)
+  function afterLoad(fn) {
+    if (document.readyState === 'complete') fn(); else window.addEventListener('load', fn, { once: true });
+  }
 
   /* ------------------------------------------------------------------
    * Ícones (traço fino, 24×24)
@@ -198,6 +205,7 @@
     var heroVisible = true, heroMostly = true, formInView = false;
     function sync() {
       if (topbar) topbar.classList.toggle('is-visible', !heroVisible);
+      if (hero) hero.classList.toggle('is-away', !heroVisible);
       // o botão flutuante fica de fora da primeira dobra (que já tem os botões de
       // agendamento) e some enquanto o formulário está na tela, para não cobrir o envio
       if (wa) wa.classList.toggle('is-hidden', heroMostly || formInView);
@@ -228,20 +236,21 @@
         entries.forEach(function (en) {
           if (!en.isIntersecting) return;
           links.forEach(function (a) { a.removeAttribute('aria-current'); });
+          // seções sem item no menu (doutora, agendamento, dúvidas) não deixam outro item aceso
           var a = byId[en.target.id];
           if (a) a.setAttribute('aria-current', 'true');
         });
       }, { rootMargin: '-45% 0px -50% 0px' });
-      Object.keys(byId).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
+      $$('main > section[id]').forEach(function (s) { io.observe(s); });
     }
   }
 
   /* ------------------------------------------------------------------
    * Menu mobile
    * ------------------------------------------------------------------ */
-  var drawer, burger;
+  var drawer, burger, closeWatcher = null;
   function setDrawer(open) {
-    if (!drawer) return;
+    if (!drawer || open === drawer.classList.contains('is-open')) return;
     // Antes de desativar o menu, tira o foco de dentro dele. Se o navegador fizer isso
     // sozinho, o foco "pula" e cancela a rolagem animada que o link acabou de iniciar.
     if (!open && drawer.contains(document.activeElement)) burger.focus({ preventScroll: true });
@@ -250,11 +259,23 @@
     burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
     if (open) drawer.removeAttribute('inert'); else drawer.setAttribute('inert', '');
     document.body.style.overflow = open ? 'hidden' : '';
+    // No Android, o gesto/botão "voltar" fecha o menu em vez de sair do site
+    if (open && 'CloseWatcher' in window) {
+      try {
+        closeWatcher = new window.CloseWatcher();
+        closeWatcher.onclose = function () { closeWatcher = null; setDrawer(false); };
+      } catch (err) { closeWatcher = null; }
+    }
+    if (!open && closeWatcher) { var w = closeWatcher; closeWatcher = null; w.destroy(); }
     if (open) {
       var first = $('.drawer__nav a', drawer);
       if (first) setTimeout(function () { if (drawer.classList.contains('is-open')) first.focus({ preventScroll: true }); }, 350);
     }
   }
+  // Se a pessoa mexer na página (dedo, roda do mouse, teclado), a correção para na hora:
+  // o site nunca "puxa de volta" quem já está rolando por conta própria.
+  var USER_SCROLL = ['wheel', 'touchstart', 'pointerdown', 'keydown'];
+  var stopNav = null; // encerra a navegação em andamento, se houver
   /*
    * Leva até uma seção. As seções abaixo da dobra são montadas sob demanda
    * (content-visibility), então as do meio do caminho podem mudar de altura
@@ -263,28 +284,44 @@
    */
   function goToSection(target, opts) {
     opts = opts || {};
+    if (stopNav) stopNav(); // um novo link substitui a navegação anterior
     if (opts.focus !== false) {
       if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
       target.focus({ preventScroll: true });
     }
     var behavior = reduceMotion ? 'auto' : 'smooth';
     var pad = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
-    var tries = 0, done = false;
-    var arrive = function () { if (!done) { done = true; if (opts.onArrive) opts.onArrive(); } };
-    var check = function () {
-      var off = target.getBoundingClientRect().top - pad;
-      if (Math.abs(off) > 3 && tries++ < 4) { target.scrollIntoView({ behavior: behavior, block: 'start' }); wait(); }
-      else arrive();
-    };
-    var timer;
-    var wait = function () {
+    var tries = 0, finished = false, timer = 0;
+    var stop = function () {
+      if (finished) return;
+      finished = true;
       clearTimeout(timer);
-      if ('onscrollend' in window) window.addEventListener('scrollend', check, { once: true });
-      timer = setTimeout(check, 1400); // rede de segurança: sem scrollend ou sem rolagem nenhuma
+      window.removeEventListener('scrollend', check);
+      USER_SCROLL.forEach(function (t) { window.removeEventListener(t, stop, true); });
+      if (stopNav === stop) stopNav = null;
     };
+    var check = function () {
+      if (finished) return;
+      var off = target.getBoundingClientRect().top - pad;
+      if (Math.abs(off) > 3 && tries++ < 4) {
+        target.scrollIntoView({ behavior: behavior, block: 'start' });
+        arm();
+      } else {
+        stop();
+        if (opts.onArrive) opts.onArrive();
+      }
+    };
+    // rede de segurança para navegadores sem o evento scrollend (ou quando nem houve rolagem)
+    var arm = function () { clearTimeout(timer); timer = setTimeout(check, 1400); };
+    if ('onscrollend' in window) window.addEventListener('scrollend', check);
+    USER_SCROLL.forEach(function (t) { window.addEventListener(t, stop, { capture: true, passive: true }); });
+    stopNav = stop;
+    var y0 = window.scrollY;
     target.scrollIntoView({ behavior: behavior, block: 'start' });
     if (opts.hash && history.pushState) history.pushState(null, '', opts.hash);
-    wait();
+    arm();
+    // já estava no lugar (nada rolou): confere logo, sem esperar a rede de segurança
+    requestAnimationFrame(function () { requestAnimationFrame(function () { if (window.scrollY === y0) check(); }); });
   }
   // Todos os links internos (#secao) passam pela rolagem conferida
   function initInPageLinks() {
@@ -303,17 +340,56 @@
   // A abertura continua leve e, quando a pessoa for navegar, as alturas já são as reais.
   function renderRestInIdle() {
     var secs = $$('main > .sec, .footer');
-    var idle = window.requestIdleCallback || function (cb) { return setTimeout(function () { cb({ timeRemaining: function () { return 10; } }); }, 50); };
     var i = 0;
     var step = function (deadline) {
-      while (i < secs.length && deadline.timeRemaining() > 6) {
+      // fatias curtas (~8 ms): num celular simples, um toque nunca espera por esta montagem
+      var t0 = performance.now();
+      while (i < secs.length && deadline.timeRemaining() > 6 && performance.now() - t0 < 8) {
         secs[i].classList.add('is-rendered');
         void secs[i].offsetHeight; // monta esta seção agora, dentro do tempo ocioso
         i++;
       }
-      if (i < secs.length) idle(step, { timeout: 1200 });
+      if (i < secs.length) idle(step, 1200);
     };
-    window.addEventListener('load', function () { idle(step, { timeout: 2500 }); }, { once: true });
+    afterLoad(function () { idle(step, 2500); });
+  }
+
+  /*
+   * Fotos abaixo da dobra. No HTML elas ficam em data-src/data-srcset para não
+   * disputarem a conexão com a foto principal. Depois da abertura, cada seção baixa
+   * as suas quando chega perto da tela e, em seguida, o resto baixa em segundo plano
+   * (menos no modo de economia de dados): a rolagem nunca encontra foto em branco.
+   * Observamos as seções, e não as fotos, porque o conteúdo de uma seção fora da tela
+   * não é montado (content-visibility) e a foto em si ainda não tem posição.
+   */
+  function initLazyMedia() {
+    if (!$('img[data-src]')) return;
+    function load(img) {
+      if (!img.hasAttribute('data-src')) return;
+      var pic = img.parentNode && img.parentNode.tagName === 'PICTURE' ? img.parentNode : null;
+      if (pic) $$('source[data-srcset]', pic).forEach(function (s) { s.srcset = s.getAttribute('data-srcset'); s.removeAttribute('data-srcset'); });
+      var shown = function () { img.classList.add('is-loaded'); };
+      img.addEventListener('load', shown, { once: true });
+      img.addEventListener('error', shown, { once: true });
+      if (img.hasAttribute('data-srcset')) { img.srcset = img.getAttribute('data-srcset'); img.removeAttribute('data-srcset'); }
+      img.src = img.getAttribute('data-src');
+      img.removeAttribute('data-src');
+    }
+    var loadIn = function (root) { $$('img[data-src]', root).forEach(load); };
+    afterLoad(function () {
+      if (!('IntersectionObserver' in window)) { loadIn(document); return; }
+      var holders = [];
+      $$('img[data-src]').forEach(function (img) {
+        var h = img.closest('.sec, .footer') || img;
+        if (holders.indexOf(h) < 0) holders.push(h);
+      });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { io.unobserve(en.target); loadIn(en.target); } });
+      }, { rootMargin: '150% 0px' });
+      holders.forEach(function (h) { io.observe(h); });
+      var saveData = navigator.connection && navigator.connection.saveData;
+      if (!saveData) idle(function () { loadIn(document); }, 3000);
+    });
   }
   function initDrawer() {
     drawer = $('#drawer');
@@ -368,6 +444,43 @@
       var set = function () { stage.style.setProperty('--pos', range.value + '%'); };
       range.addEventListener('input', set);
       set();
+
+      // Dedo e mouse em qualquer ponto da foto. No toque, só vira arraste depois de um
+      // movimento horizontal claro: quem está rolando a página na vertical não mexe no corte.
+      var pointer = null, startX = 0, dragging = false, rect = null, frame = 0, lastX = 0;
+      var moveTo = function (x) {
+        lastX = x;
+        if (frame) return;
+        frame = requestAnimationFrame(function () {
+          frame = 0;
+          var pct = Math.max(0, Math.min(100, ((lastX - rect.left) / rect.width) * 100));
+          range.value = String(Math.round(pct));
+          set();
+        });
+      };
+      var begin = function (e) {
+        dragging = true;
+        stage.classList.add('is-dragging');
+        try { stage.setPointerCapture(e.pointerId); } catch (err) { /* ponteiro já liberado */ }
+      };
+      var end = function (e) {
+        if (e.pointerId !== pointer) return;
+        if (!dragging && e.type === 'pointerup') moveTo(e.clientX); // toque rápido: pula para o ponto
+        pointer = null; dragging = false;
+        stage.classList.remove('is-dragging');
+      };
+      stage.addEventListener('pointerdown', function (e) {
+        if (e.button > 0 || pointer !== null) return;
+        pointer = e.pointerId; startX = e.clientX; rect = stage.getBoundingClientRect();
+        if (e.pointerType === 'mouse') { e.preventDefault(); begin(e); moveTo(e.clientX); }
+      });
+      stage.addEventListener('pointermove', function (e) {
+        if (e.pointerId !== pointer) return;
+        if (!dragging && Math.abs(e.clientX - startX) > 6) begin(e);
+        if (dragging) moveTo(e.clientX);
+      });
+      stage.addEventListener('pointerup', end);
+      stage.addEventListener('pointercancel', end); // o navegador assumiu a rolagem vertical
     });
   }
 
@@ -411,10 +524,13 @@
     }
     if (addr) addr.textContent = A.street;
     if (btn) btn.addEventListener('click', function () {
+      // um mapa só, mesmo com toque duplo ou clique repetido
+      if (btn.disabled || $('iframe', map)) return;
+      btn.disabled = true;
+      btn.textContent = 'Carregando o mapa…';
       var iframe = document.createElement('iframe');
       iframe.src = Links.embed();
       iframe.title = 'Mapa com a localização da Clínica Vitae';
-      iframe.loading = 'lazy';
       iframe.referrerPolicy = 'no-referrer-when-downgrade';
       iframe.setAttribute('allowfullscreen', '');
       map.appendChild(iframe);
@@ -542,6 +658,15 @@
       if (focus) {
         var legend = $('.bstep[data-step="' + state.step + '"] .bstep__title', form);
         if (legend) { legend.setAttribute('tabindex', '-1'); legend.focus({ preventScroll: true }); }
+        keepFormTopInView();
+      }
+    }
+    // No celular, o botão "Continuar" fica bem abaixo do título da etapa. Ao trocar de
+    // etapa, se o topo do formulário ficou acima da tela, rola até ele.
+    function keepFormTopInView() {
+      var pad = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+      if (form.getBoundingClientRect().top < pad) {
+        form.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
       }
     }
 
@@ -558,14 +683,16 @@
       nextBtn.disabled = true;
       nextBtn.classList.add('is-loading');
       nextLabel.textContent = 'Abrindo o WhatsApp…';
-      // No computador, a aba é aberta ainda dentro do clique (evita bloqueio de pop-up)
+      // No computador, a aba é aberta ainda dentro do clique (evita bloqueio de pop-up).
+      // No celular, o WhatsApp abre na hora (logo após mostrar o "Abrindo…"), ainda dentro
+      // da janela em que o navegador considera a navegação um toque da pessoa e abre o app.
       var mobile = window.matchMedia('(pointer: coarse)').matches;
       var win = null;
       if (!mobile) { try { win = window.open('', '_blank'); if (win) win.opener = null; } catch (err) { win = null; } }
       setTimeout(function () {
         if (win && !win.closed) win.location.href = url; else window.location.href = url;
         showDone(url);
-      }, 700);
+      }, mobile ? 250 : 700);
     }
 
     function showDone(url) {
@@ -578,6 +705,7 @@
       $('#done-link').setAttribute('href', url);
       done.hidden = false;
       var h = $('h3', done); h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true });
+      keepFormTopInView();
     }
 
     function reset() {
@@ -716,6 +844,7 @@
     initDrawer();
     initInPageLinks();
     renderRestInIdle();
+    initLazyMedia();
     initCompare();
     initVideo();
     initMap();

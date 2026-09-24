@@ -32,30 +32,46 @@ Links externos também funcionam, por exemplo: `index.html?servico=implante#agen
 
 ## Ao alterar arquivos depois de publicado
 
-- Mudou `styles.css`, `config.js` ou `main.js`? Aumente o número `?v=6` no `index.html`
+- Mudou `styles.css`, `config.js` ou `main.js`? Aumente o número `?v=7` no `index.html`
   (nas três linhas), para os navegadores buscarem a versão nova.
-- Trocou uma foto? Use um **nome de arquivo novo** (as imagens ficam em cache por 30 dias).
+- Trocou uma foto ou fonte? Use um **nome de arquivo novo** (imagens ficam em cache por 30 dias;
+  fontes, por 1 ano).
 - Foto principal: `assets/img/dra-karolyna-{520,760,1080}.{avif,webp}`. O original está em
   `C:\CLINICA VITAE\dra-karolyna-retrato-original.jpg`.
+- **Fotos abaixo da primeira dobra** usam `data-src` / `data-srcset` (e não `src` / `srcset`):
+  o `main.js` só as baixa depois que a página abriu, para não disputarem a conexão com a foto
+  principal. Ao adicionar uma foto nova numa seção, siga o mesmo modelo (com `class="lz"`).
+  Não use `loading="lazy"`: dentro das seções com `content-visibility` ele trava e a foto nunca aparece.
+- Fontes: Playfair Display só no peso 400 (normal e itálico) e Montserrat de 400 a 600, recortadas
+  para os caracteres do português. Um peso diferente no CSS seria "desenhado" pelo navegador.
+
+## Segurança
+
+A `vercel.json` (e a `_headers`, para Netlify/Cloudflare) envia uma política de segurança (CSP) que
+só permite arquivos do próprio site e o mapa do Google. Se um dia entrar um script, fonte ou
+iframe de fora (Google Analytics, pixel, etc.), o endereço dele precisa ser liberado ali. O único
+script embutido no HTML (`document.documentElement.classList.add('js');`) está liberado pelo
+seu código `sha256`: se ele for alterado, gere o novo código e troque nos dois arquivos.
 
 ## Desempenho (Lighthouse 13, medido localmente com compressão ativada)
 
-| | Antes | Depois |
-|---|---|---|
-| Celular — desempenho | 85 | 95–98 |
-| Celular — 1ª pintura / conteúdo principal | 2,9 s / 3,1 s | 0,8–1,2 s / 2,0–2,2 s |
-| Desktop — desempenho | 98 | 100 |
-| Acessibilidade · Boas práticas · SEO | 97 · 100 · 100 | 100 · 100 · 100 |
+| | Início | Setembro/2026 (v6) | Agora (v7) |
+|---|---|---|---|
+| Celular — desempenho | 85 | 91–95 | 96 |
+| Celular — 1ª pintura / conteúdo principal | 2,9 s / 3,1 s | 1,3 s / 2,3–2,4 s | 1,1 s / 2,1 s |
+| Celular — bloqueio da página (TBT) | — | 60–330 ms | 90–100 ms |
+| Desktop — desempenho | 98 | 100 | 100 |
+| Acessibilidade · Boas práticas · SEO | 97 · 100 · 100 | 100 · 100 · 100 | 100 · 100 · 100 |
+| Peso da abertura no celular | — | ~410 KB | ~310 KB |
 
-A nota de celular varia alguns pontos entre medições (é simulação). Na hospedagem, confirme no
-PageSpeed Insights (https://pagespeed.web.dev) depois de publicar.
+A nota de celular varia alguns pontos entre medições (é simulação de um celular simples em 4G lento).
+Na hospedagem, confirme no PageSpeed Insights (https://pagespeed.web.dev).
 
 ## Pendências (preencher em `assets/js/config.js`)
 
 | Campo | Situação |
 |---|---|
 | `technicalResponsible.cro` | CRO-CE da responsável técnica. O CFO exige nome e CRO na publicidade odontológica. |
-| `instagram` | Confira a grafia de **@clinicavitaceara** (foi informada assim, sem o "e" de "vitae"). |
 | `email` | Não informado. |
 | `services[].description` | Descrições neutras escritas como rascunho. Revise com a clínica. |
 | `geo` | Coordenadas exatas (opcional). Sem elas, o mapa usa o endereço. |
