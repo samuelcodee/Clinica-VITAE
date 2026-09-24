@@ -53,16 +53,16 @@ iframe de fora (Google Analytics, pixel, etc.), o endereço dele precisa ser lib
 script embutido no HTML (`document.documentElement.classList.add('js');`) está liberado pelo
 seu código `sha256`: se ele for alterado, gere o novo código e troque nos dois arquivos.
 
-## Desempenho (Lighthouse 13, medido localmente com compressão ativada)
+## Desempenho (Lighthouse 13, medido em https://clinicavitae.vercel.app)
 
-| | Início | Setembro/2026 (v6) | Agora (v7) |
+| | Início | v6 | Agora (v7) |
 |---|---|---|---|
-| Celular — desempenho | 85 | 91–95 | 96 |
-| Celular — 1ª pintura / conteúdo principal | 2,9 s / 3,1 s | 1,3 s / 2,3–2,4 s | 1,1 s / 2,1 s |
-| Celular — bloqueio da página (TBT) | — | 60–330 ms | 90–100 ms |
+| Celular — desempenho | 85 | 91–95 | 97 |
+| Celular — 1ª pintura / conteúdo principal | 2,9 s / 3,1 s | 1,3 s / 2,4 s | 1,2 s / 1,9 s |
+| Celular — bloqueio da página (TBT) | — | 60–330 ms | 50–60 ms |
 | Desktop — desempenho | 98 | 100 | 100 |
 | Acessibilidade · Boas práticas · SEO | 97 · 100 · 100 | 100 · 100 · 100 | 100 · 100 · 100 |
-| Peso da abertura no celular | — | ~410 KB | ~310 KB |
+| Peso da abertura no celular | — | ~410 KB | ~300 KB |
 
 A nota de celular varia alguns pontos entre medições (é simulação de um celular simples em 4G lento).
 Na hospedagem, confirme no PageSpeed Insights (https://pagespeed.web.dev).
